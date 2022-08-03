@@ -1,19 +1,14 @@
 import React from "react";
 import { useState } from "react";
 
-function Cate_handle(props) {
-    const [nav, setNav] = useState();
-
-    function handleClick(){
-        setNav();
-    }
+function Cate_Handle(props) {
     return (
         <div className="catelogies">
         <ul>
-            <div onClick={handleClick}><li>{props.name}</li></div>
+            <li>{props.name}</li>
         </ul>
     </div>
     );
 }
 
-export default Cate_handle;
+export default Cate_Handle;
