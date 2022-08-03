@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 *{    
-  font-size: 12px;
-  font-family: 'Quicksand', sans-serif;
+  font-size: 14px;
+  font-family: $font-family-typeBasePrimary, $font-family-typeBaseFallback;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
