@@ -1,19 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import CategorieS from './ProductItems'
+import { useState } from 'react'
+import data from './data'
 
-function Categories({data,setselectedId}) {
-    const handleSelectCategory = (id)=>{
-        setselectedId(id)
-
+function Categories() {
+    const [id, setId] = useState();
+    function show(id) {
+        setId(id);
     }
     return (
         <div>
-            <ul>
                 {data.map((product) =>
-                    <li key={product.id} onClick={()=>handleSelectCategory(product.id)}>{product.name}</li>
-                    )
+                    <CategorieS 
+                        id = {id}
+                        getId = {show}
+                        key = {product.id}
+                        content = {product}
+                    />
+                )
                 }
-            </ul>
         </div>
     )
 }

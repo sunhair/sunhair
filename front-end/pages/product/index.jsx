@@ -7,14 +7,9 @@ import Items from "./Items";
 
 
 export default function Product(){ 
-    const [selectedId, setselectedId] = useState(null)
-    const listItem = selectedId 
-        ? data.find((e)=>e.id === selectedId)
-        : []
     return (
         <div>
-            <Categories data={data} setselectedId={setselectedId}/>
-            <Items data = {listItem} />
+            <Categories />
         </div>
       )
 };
