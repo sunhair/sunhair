@@ -3,25 +3,38 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Image from "next/image";
-import {Row, Col} from 'react-bootstrap'
+import {Row, Col} from 'react-bootstrap';
+import $ from 'jquery';
+import DesktopDropdown from '../desktop-dropdown-inside'
+import {useState, useEffect} from 'react'
+
+
 function Header() {
+  const [test,setTest] = useState(false);
+  function handleShow(){
+    setTest(true);
+  }
+
+  function handleHide(){
+    setTest(false);
+  }
 
   return (
-    <div>
+    <div className = "header" onMouseLeave={handleHide} >
       <Navbar className="navbar" collapseOnSelect expand="lg" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <Image
               src="/brand-sunhair-removebg-preview.png"
               alt="logo"
-              width={130}
-              height={60}
+              width={95}
+              height={46}
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#pricing">Inside SunHair</Nav.Link>
+              <Nav.Link href="#pricing" onMouseEnter={handleShow} >Inside SunHair</Nav.Link>
               <NavDropdown title="Shop" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -42,10 +55,14 @@ function Header() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <div className='recommended-panel'>ddddddddddddd</div>
       </Navbar>
+      {
+        test?<DesktopDropdown />:<></>
+      }
     </div>
   );
 }
+
+
 
 export default Header;
