@@ -4,9 +4,11 @@
 @import './base/animation';
 
 // scss common
+@import './common/shine-image';
 
 // scss component
 @import './component/desktop-dropdown.scss';
+@import './component/desktop-dropdown-item.scss';
 @import './component/footer.scss';
 @import './component/header';
 

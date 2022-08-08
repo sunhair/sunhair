@@ -1,53 +1,68 @@
-@mixin card-intro ($link){
-   height: 100%;
-   width: 100%;
+@mixin card-intro($link-image){
+   min-height: 26vh;
+   
+   animation-name: fadeIn;
+   animation-duration: 0.5s;
+
    position: relative;
-   &::before {  
-      content: "";
-      background-image: url($link);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   z-index: 2;
+   &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left:0;
+      top:0;
+      background-color: $mist;
+      background-image:url($link-image);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      opacity: 0.25;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
+      opacity: 0.35;
+      border-right: 1px solid $ink;
+   }
+   .card-title{
+      line-height: 2rem;
+      font-weight: 700;
+      font-size: 2rem;
+   
+      text-decoration: none;
+      box-shadow: inset 0 0 0 0 #54b3d6;
+      color: $ink;
+      margin: 0 -.25rem;
+      padding: 0 .25rem;
+      transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+      z-index: 1;
+      cursor:pointer;
+      :hover{
+         box-shadow: inset 100px 0 0 0 #54b3d6;
+         color: white;
+      }
    }
 }
 
-.card-introduction{
-   min-height: 30vh;
-   animation-name: fadeIn;
-   animation-duration: 0.5s;
-   &-1{
-      @include card-intro('/logo-removebg.png');
-      h1{
-         text-transform: uppercase;
-         
-      }
+.desktop-dropdown-inside{
+   position: absolute;
+   .card-intro-1{
+      @include card-intro('/brand-sunhair-removebg-preview.png');
    }
-   &-2{
+   .card-intro-2{
       @include card-intro('/thumbnail1-removebg-preview.png');
    }
-   &-3{
-      background-image: url('/logo.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+   .card-intro-3{
+      @include card-intro('/logo-removebg.png');
    }
-   &-4{
-      background-image: url('/logo.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+   .card-intro-4{
+      @include card-intro('/thmbnail5-removebg-preview.png');
    }
-   &-5{
-      background-image: url('/logo.png');
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
+   .card-intro-5{
+      @include card-intro('/feedback.jpg');
    }
 }
 

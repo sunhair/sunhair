@@ -1,32 +1,29 @@
 // add class dropdown-callout-trapezoid" to display overlayed trapezoid shape on dropdown-callouts
 import {Container, Row, Col, Card} from 'react-bootstrap'
-import Image from 'next/image'
 
-function DesktopDropdown (){
+function DesktopDropdownInside (){
+
    return (
-      <Container fluid>
+      <Container fluid className="desktop-dropdown-inside ">        
          <Row>
-            <Col className='card-introduction'>
-               <div className="card-introduction-1 d-flex justify-content-center align-items-center">
-                  <h1>dsfjsjdfjsdf</h1>
-               </div>
+            <Col sm className="card-intro-1">
+               <a href="#a" title="" className="card-title">MEANING <br/> NAME</a>
             </Col>
-            <Col className='card-introduction card-introduction-2 d-flex justify-content-center'>
-               <p>ddddd</p>
+            <Col sm className="card-intro-2">
+               <a href="#a" className="card-title">WHY YOU <br/> SHOULD CHOOSE</a>            
             </Col>
-            <Col className='card-introduction card-introduction-1 d-flex justify-content-center'>
-               <p>ddddd</p>
-            </Col>            
-            <Col className='card-introduction card-introduction-1 d-flex justify-content-center'>
-               <p>ddddd</p>
-            </Col>            
-            <Col className='card-introduction card-introduction-1 d-flex justify-content-center'>
-               <p>ddddd</p>
-            </Col>            
+            <Col sm className="card-intro-3">
+               <a href="#a" className="card-title">VISION <br/> AND MISSION</a>
+            </Col>
+            <Col sm className="card-intro-4">
+               <a href="#a" className="card-title">SHOP</a>            
+            </Col>
+            <Col sm className="card-intro-5">
+               <a href="#a" className="card-title">FEEDBACK</a>     
+            </Col>
          </Row>
-         
       </Container>
    )
 }
 
-export default DesktopDropdown
+export default DesktopDropdownInside

@@ -1,11 +1,17 @@
 @import './variable';
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
 
 *{    
-  font-size: 14px;
+  font-size: 12px;
   font-family: $font-family-typeBasePrimary, $font-family-typeBaseFallback;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+body{
+  background: linear-gradient(-45deg, #cbcbcb, #a8a8a8);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100%;
 }

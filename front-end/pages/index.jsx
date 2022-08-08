@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Container from "../components/container";
+import Main from "../components/main";
 import Footer from "../components/footer";
 import Head from "next/head";
 
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
       <div>
         <Header />
-        <Container />
+        <Main />
         <Footer />
       </div>
     </>
