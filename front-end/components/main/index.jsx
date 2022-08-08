@@ -1,15 +1,22 @@
-import {Container, Row, Col } from 'react-bootstrap'
-import Image from 'next/image'
-
 function Main(){
    return(
       <div className="container main ">
-         <div className="row justify-content-around align-items-center text-image">
-            <div className="col-md-4 offset-md-2 align-self-center d-flex">
-               dddd
+         <div className="row justify-content-between align-items-center text-image">
+            <div className="col-6">
+               <p className="slogan">
+                  YOUR BEAUTY-OUR MISSION
+               </p>
+               <p>
+               <p className="bio">
+                  We provide ladies all over the world with the most beautiful, <br/>
+                  fashionable hair without causing damage to their natural hair
+               </p>
+
+               </p>
+               <button className="glow-on-hover" type="button">SHOPPING NOW!</button>
             </div>
-            <div className="col-6  d-flex justify-content-center">
-               <div class="image-wrapper shine">
+            <div className="col-4 d-flex justify-content-center">
+               <div className="image-wrapper shine">
                   <img src="/background-homepage-removebg-preview.png" alt="Image here, hover me and watch me shine!" />
                </div>
             </div>
@@ -19,3 +26,4 @@ function Main(){
 }
 
 export default Main
+
