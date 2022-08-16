@@ -1,0 +1,12 @@
+.horizontal{
+  margin-top: 94px;
+
+}
+.frame{
+  display: flex;
+  justify-content: space-around;
+  .image-center{
+    margin: 0 24px;
+    width: 50%;
+  }
+}

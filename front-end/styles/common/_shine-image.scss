@@ -1,12 +1,12 @@
 .image-wrapper {
-	width: 100vh;
+	width: 60vh;
 	border-radius: 6px;
 	background-color: transparent;
 	display: flex;
 	align-items: center;
 	text-align: center;
 	line-height: 1.6;
-
+	filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
 	img {
 		height: auto;
 		max-width: 100%;
@@ -48,5 +48,4 @@
 	}
 }
 
-// Ignore the below CSS
 

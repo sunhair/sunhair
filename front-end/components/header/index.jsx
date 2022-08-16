@@ -1,69 +1,31 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Image from "next/image";
-import DesktopDropdownInside from '../desktop-dropdown-inside'
-import DesktopDropdownItem from "../desktop-dropdown-item";
-import {useState, useEffect} from 'react'
-
-
 function Header() {
-  const [showInside,setShowInside] = useState(false);
-  const [showItem,setShowItem] = useState(false);
-
-  function handleShowInside(){
-    setShowInside(true);
-    setShowItem(false);
-  }
-
-  function handleShowItem(){
-    setShowItem(true);
-    setShowInside(false);
-  }
-
-  function handleHide(){
-    setShowInside(false);
-    setShowItem(false);
-  }
-
   return (
-    <div className = "header " onMouseLeave={handleHide} >
-      <Navbar className="navbar" collapseOnSelect expand="lg" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">
-            <Image
-              src="/brand-sunhair-removebg-preview.png"
-              alt="logo"
-              width={86}
-              height={40}
-            />
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#pricing" onMouseEnter={handleShowInside} >INSIDE SUNHAIR</Nav.Link>
-              <Nav.Link href="#pricing" onMouseEnter={handleShowItem} >SHOP</Nav.Link>
-            </Nav>
-            {/* <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
-              </Nav.Link>
-            </Nav> */}
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      {
-        showInside?<DesktopDropdownInside />:<></>}
-      {
-        showItem?<DesktopDropdownItem />:<></>
-      }
-    </div>
+    <nav class="navbar navbar-expand-lg">
+      <div className='container'>
+        <a class="navbar-brand" href="#">
+          <img src="/brand-sunhair-removebg-preview.png" alt="" width="160" height="57"/>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between align-items-end" id="navbarNavAltMarkup" >
+          <div className='section1'></div>
+
+          <div class="navbar-nav section2">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">About us</a>
+            <a class="nav-link" href="#">Shop</a>
+          </div>
+
+          <div class="navbar-nav section3">
+            <img src='/icon-contact.png' alt="" width="18" heigh="18"/>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
   );
 }
 
-
-
 export default Header;
-

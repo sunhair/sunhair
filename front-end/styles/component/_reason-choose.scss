@@ -1,0 +1,92 @@
+.reason-choose{
+   margin-top: 145px;
+   padding-left: 32px;
+   height: 200;
+   .title{
+      padding: 0 32 0 0;
+      margin: 0;
+   }
+   .hr{
+      width: 100%;
+      height: 3px;
+      background-color: #0A0A12;  
+   }
+   .content{
+
+      margin-top: 38px;
+      .reason1{
+         background-image: url(/bg-directwholesale.png);
+         background-repeat: no-repeat;
+         background-size:auto;
+
+         width: 319px;
+         height: 934px;
+         margin: 0;
+         padding: 0;
+         &-title{
+            color:white;
+            margin-top: 64px;
+         }
+         &-description{
+            margin-top:60px;
+            color:white;
+         }  
+         .button-explore{
+            margin-top: 489px;
+            @include button-explore(216px,68px,white,black,18px);
+            margin-bottom: 78px;
+         }
+         
+      }
+
+      .reason2{
+         background-image: url(/bestprice.png);
+         background-repeat: no-repeat;
+         background-size: auto;
+
+         width: 932px;
+         height: 312px;
+         margin: 0;
+         padding: 0;
+
+         .button-explore{
+            @include button-explore(216px,68px,black,white,18px);
+         }
+      }   
+
+      .reason3{
+         background-image: url(/center.png);
+         background-repeat: no-repeat;
+         width: 600px;
+         height: 606px;
+
+      }      
+      .reason4{
+         background-image: url(/return-policy.png);
+         background-repeat: no-repeat;
+         width: 312px;
+         height: 932px;
+         margin-top:1vh;
+         margin-left: 1vw;
+      }
+      .reason5{
+         background-image: url(/custormer-service.png);
+         background-repeat: no-repeat;
+         width: 932px;
+         height: 312px;
+
+         position: absolute;
+      }
+   }
+}
+.content-title{
+   font-family: $font-tile;
+   font-weight: 600;
+   font-size: 32px;
+   line-height: 38px;
+}
+.content-description{
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 18px;
+}

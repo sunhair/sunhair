@@ -5,14 +5,18 @@
 
 // scss common
 @import './common/shine-image';
-@import './common/button-expolore';
-
+@import './common/button';
+@import './common/title';
+@import './common/learnmore';
 
 // scss component
-@import './component/desktop-dropdown.scss';
-@import './component/desktop-dropdown-item.scss';
+
 @import './component/footer.scss';
 @import './component/header';
+@import './component/homesection1';
+@import './component/about-us';
+@import './component/horizontal-scrolling';
+@import './component/reason-choose';
 
 // scss page
-@import './page/homepage.scss';
+@import './page/homepage';

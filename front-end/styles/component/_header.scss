@@ -1,15 +1,31 @@
-.header{
-   position: relative;
-   .navbar{
-      padding: 4px 0 0 0;
-      background-color: $ink;
-      .nav-link{
-         margin-left:32px;
-         position: relative;
-         @include hover_underline;
+.navbar{
+   padding-top: 12px;
+   .container{
+      .navbar-brand{
+         padding-left: 24px;
       }
-
+      .navbar-collapse{
+         .section2{
+            .nav-link{
+               color:white;
+               margin-right: 32px;
+            }
+            .active{
+               text-shadow: 0px 0px 30px #FFFFFF;
+            }
+         }
+         .section3{
+            width: 130px;
+            height: 36px;
+            background: #D9D9D9;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .nav-link{
+               margin-left: 12px;
+            }
+         }
+      }
    }
 }
-
-
