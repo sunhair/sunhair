@@ -1,5 +1,25 @@
 var Product = require('../model/model')
+var fs = require('fs');
+const multer = require('multer')
 
+
+
+//storage image
+
+
+
+const Storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'uploads')
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+
+const upload = multer({
+    storage: Storage
+}).single('testImage')
 //create and save new product
 
 exports.create = (req, res) => {
@@ -8,11 +28,21 @@ exports.create = (req, res) => {
         return;
     }
 
+
+
+
     //new product
     const product = new Product({
         name: req.body.name,
         category: req.body.category,
-        discription: req.body.discription
+        information: req.body.information,
+        detail: req.body.detail,
+        characteristics: req.body.characteristics,
+        howtobuy: req.body.howtobuy,
+        image: {
+            data: fs.readFileSync('uploads/' + req.file.filename),
+            contentType: "image/jpg",
+        },
     })
 
     //save product

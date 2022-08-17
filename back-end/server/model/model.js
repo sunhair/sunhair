@@ -9,10 +9,17 @@ var schema = new mongoose.Schema({
         type: String,
         require: true
     },
-    discription: {
+    information: {
         type: String,
         reuqire: true
-    }
+    },
+    detail: String,
+    characteristics: String,
+    howtobuy: String,
+    // image: {
+    //     data: Buffer,
+    //     contentType: String
+    // }
 })
 
 const Productdb = mongoose.model('Sunhair', schema)
