@@ -1,5 +1,5 @@
-import HomeSection1 from '../home-section1';
-import HomeSection2 from '../home-section2';
+import HomeSection1 from './home-section1';
+import HomeSection2 from './home-section2';
 
 function Main() {
   return (

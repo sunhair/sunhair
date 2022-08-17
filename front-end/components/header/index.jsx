@@ -1,3 +1,5 @@
+import Link from 'next/Link';
+
 function Header() {
   return (
     <nav className="navbar navbar-expand-lg">
@@ -19,7 +21,7 @@ function Header() {
 
           <div className="navbar-nav section3">
             <img src='/icon-contact.png' alt="" width="18" heigh="18"/>
-            <a className="nav-link" href="#">Contact</a>
+            <a className="nav-link" href="tel:(+84) 969-682-226">Contact</a>
           </div>
         </div>
       </div>

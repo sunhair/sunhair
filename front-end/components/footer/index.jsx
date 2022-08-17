@@ -44,7 +44,7 @@ function Footer() {
                     Province, Vietnam
                   </span>
                 </div>
-                <div className="copyright"> Copyright © 2022 hollee, All Rights Reserved </div>
+                <div className="copyright"> Copyright © 2022 SunhairCompany.com, All Rights Reserved </div>
               </div>
               <div className="col-1 mt-4">
                 <p className="about mt-5">ABOUT</p>

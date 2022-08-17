@@ -1,15 +1,17 @@
 import React from "react";
-import { useContext } from "react";
-import { useState } from "react";
 import Categories from "./Categories";
-import data from "./data";
+import Head from "next/head";
 
-
-export default function Product(){ 
-    return (
-        <div>
-            <Categories />
-        </div>
-      )
-};
-
+export default function Product() {
+  return (
+    <>
+      {" "}
+      <Head>
+        <title>Product</title>
+      </Head>
+      <div>
+        <Categories />
+      </div>
+    </>
+  );
+}
