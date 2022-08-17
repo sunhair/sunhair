@@ -19,44 +19,44 @@ function OurProducts() {
       </div>
 
       <main className="page-content1">
-        <div class="card1">
-          <div class="content1">
-            <h2 class="title1">Weft hair</h2>
-            <p class="copy1">
+        <div className="card1">
+          <div className="content1">
+            <h2 className="title1">Weft hair</h2>
+            <p className="copy1">
               Check out all of these gorgeous mountain trips with beautiful
               views of, you guessed it, the mountains
             </p>
-            <button class="btn1">See all</button>
+            <button className="btn1">See all</button>
           </div>
         </div>
-        <div class="card1">
-          <div class="content1">
-            <h2 class="title1">Keration Hair</h2>
-            <p class="copy1">
+        <div className="card1">
+          <div className="content1">
+            <h2 className="title1">Keration Hair</h2>
+            <p className="copy1">
               Check out all of these gorgeous mountain trips with beautiful
               views of, you guessed it, the mountains
             </p>
-            <button class="btn1">See all</button>
+            <button className="btn1">See all</button>
           </div>
         </div>
-        <div class="card1">
-          <div class="content1">
-            <h2 class="title1">Closure</h2>
-            <p class="copy1">
+        <div className="card1">
+          <div className="content1">
+            <h2 className="title1">Closure</h2>
+            <p className="copy1">
               Check out all of these gorgeous mountain trips with beautiful
               views of, you guessed it, the mountains
             </p>
-            <button class="btn1">See all</button>
+            <button className="btn1">See all</button>
           </div>
         </div>
-        <div class="card1">
-          <div class="content1">
-            <h2 class="title1">See all</h2>
-            <p class="copy1">
+        <div className="card1">
+          <div className="content1">
+            <h2 className="title1">See all</h2>
+            <p className="copy1">
               Check out all of these gorgeous mountain trips with beautiful
               views of, you guessed it, the mountains
             </p>
-            <button class="btn1">View Trips</button>
+            <button className="btn1">View Trips</button>
           </div>
         </div>
       </main>
