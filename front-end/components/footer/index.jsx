@@ -20,7 +20,7 @@ function Footer() {
                   Sun Hair was founded with the goal of providing ladies all
                   over the world with the most beautiful, fashionable hair
                   without causing damage to their natural hair. Sun Hair is
-                  proud to be one of Vietnam's leading hair suppliers
+                  proud to be one of Vietnam&apos;s leading hair suppliers
                 </p>
                 <div className="mt-5">
                   <img src="/whatsapp.png" className="icon ps-2 me-3" />

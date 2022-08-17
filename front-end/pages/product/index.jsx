@@ -1,5 +1,3 @@
-import React from "react";
-import Categories from "./Categories";
 import Head from "next/head";
 
 export default function Product() {
@@ -10,7 +8,7 @@ export default function Product() {
         <title>Product</title>
       </Head>
       <div>
-        <Categories />
+        dsfdsfsdfsdf
       </div>
     </>
   );
