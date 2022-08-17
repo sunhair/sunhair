@@ -33,7 +33,7 @@
          }  
          .button-explore{
             margin-top: 489px;
-            @include button-explore(216px,68px,white,black,18px);
+            @include button-explore(180px,54px,white,black,18px);
             margin-bottom: 78px;
          }
          
@@ -50,7 +50,7 @@
          padding: 0;
 
          .button-explore{
-            @include button-explore(216px,68px,black,white,18px);
+            @include button-explore(180px,54px,black,white,18px);
          }
       }   
 
@@ -66,8 +66,19 @@
          background-repeat: no-repeat;
          width: 312px;
          height: 932px;
-         margin-top:1vh;
          margin-left: 1vw;
+         &-title{
+            color:white;
+            margin-top: 64px;
+         }
+         &-description{
+            margin-top:60px;
+            color:white;
+         }  
+         .button-explore{
+            @include button-explore(180px,54px,while,black,18px);
+            margin-top: 500px;
+         }
       }
       .reason5{
          background-image: url(/custormer-service.png);
@@ -76,6 +87,11 @@
          height: 312px;
 
          position: absolute;
+         margin-top: 1vh;
+         margin-left: 1vh;
+         .button-explore{
+            @include button-explore(180px,54px,black,white,18px);
+         }
       }
    }
 }

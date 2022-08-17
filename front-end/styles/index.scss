@@ -8,7 +8,7 @@
 @import './common/button';
 @import './common/title';
 @import './common/learnmore';
-
+@import './common/link';
 // scss component
 
 @import './component/footer.scss';
@@ -17,6 +17,10 @@
 @import './component/about-us';
 @import './component/horizontal-scrolling';
 @import './component/reason-choose';
+@import './component/out-products';
+@import './component/our-products-cards';
+@import './component/feedback';
+@import './component/subcrice';
 
 // scss page
 @import './page/homepage';
