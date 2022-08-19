@@ -9,6 +9,8 @@
 @import './common/title';
 @import './common/learnmore';
 @import './common/link';
+@import './common/product-panel';
+@import './common/path';
 // scss component
 
 @import './component/footer.scss';
@@ -21,6 +23,8 @@
 @import './component/our-products-cards';
 @import './component/feedback';
 @import './component/subcrice';
+@import './component/header-product';
+@import './component/main-product';
 
 // scss page
 @import './page/homepage';

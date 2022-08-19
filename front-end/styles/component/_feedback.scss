@@ -17,8 +17,11 @@
    }
    .container-fluid{
       margin-top: 82px;
-      .row{
-         background-image: url(/bg-feedback.png);
+      padding: 0;
+      background-image: url(/bg-feedback.png);
+      background-size: cover;
+      .container{
+         padding: 0;
       }
       .space{
          width: 100%;

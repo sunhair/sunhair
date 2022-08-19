@@ -1,0 +1,27 @@
+.main-product{
+   .title-sort{
+      .category-title{
+         font-weight: 300;
+         font-size: 32px;
+         line-height: 33px;
+      }
+      .sort{
+         .btn{
+            --bs-btn-border-width: 0px;
+         }
+         .text{
+            width: 150px;
+            text-align: left;
+         }
+      }
+   }
+   .category-showprduct{
+      .list-category{
+         .category{
+            height: 42px;
+            background-color: red;
+            margin-bottom: 4px;
+         }
+      }
+   }
+}

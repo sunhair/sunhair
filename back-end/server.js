@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('Cors')
 const app = express()
 const dotenv = require('dotenv')
 const morgan = require('morgan')
@@ -10,6 +11,7 @@ const connectDB = require('./server/database/connection')
 dotenv.config({ path: 'config.env' })
 const PORT = process.env.PORT || 8080
 
+app.use(cors());
 //log request
 app.use(morgan('tini'))
 
