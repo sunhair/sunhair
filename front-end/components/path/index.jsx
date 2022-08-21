@@ -1,12 +1,23 @@
-import Link from "next/Link";
+function PathProps({ path }) {
 
-function PathProps({ props }) {
+
+  function turnBackSegment(index) {
+    // setCurrPath((curPath) =>
+    //   [...curPath.slice(0,index+1)]
+    // );
+    // setCurrPath([{href:"1",namepath:"b"},{href:"2",namepath:"b"}]);    
+  }
+
   return (
     <div className="path">
-      {props.map((unitpath, index) => (
-        <Link key={index} href={unitpath.href}>
-          <a className="unitpath-basic ms-1 me-1 title">{unitpath.namepath}</a>
-        </Link>
+      {path.map((unitpath, index) => (
+        <a
+          key={index}
+          className="unitpath-basic ms-1 me-1 title"
+          onClick={()=>turnBackSegment(index)}
+        >
+          {unitpath.namepath}
+        </a>
       ))}
     </div>
   );

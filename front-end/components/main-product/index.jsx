@@ -4,15 +4,42 @@ import { useState, useEffect } from "react";
 import PathProps from "../path";
 
 const CATEGORIES = [
-  "WEFT HAIR",
-  "BULK HAIR",
-  "KERATIN HAIR",
-  "CLOSURE",
-  "CLIP IN",
-  "FRONTAl",
-  "WIGS HAIR",
-  "TAPE HAIR",
-  "RAW HAIR",
+  {
+    nameCate: "WEFT HAIR",
+    nameURL: "weft_hair",
+  },
+  {
+    nameCate: "BULK HAIR",
+    nameURL: "bulk_hair",
+  },
+  {
+    nameCate: "KERATIN HAIR",
+    nameURL: "keratin_hair",
+  },
+  {
+    nameCate: "CLOSURE",
+    nameURL: "closure",
+  },
+  {
+    nameCate: "CLIP IN",
+    nameURL: "clip_in",
+  },
+  {
+    nameCate: "FRONTAL",
+    nameURL: "frontal",
+  },
+  {
+    nameCate: "WIGS HAIR",
+    nameURL: "wigs_hair",
+  },
+  {
+    nameCate: "TAPE HAIR",
+    nameURL: "tape_hair",
+  },
+  {
+    nameCate: "RAW HAIR",
+    nameURL: "raw_hair",
+  },
 ];
 
 const SORT_ORDERLY = [
@@ -26,24 +53,33 @@ const SORT_ORDERLY = [
   "PRICE LOW TO HIGH",
   "PRICE HIGH TO LOW",
 ];
+
 function Main() {
+  // Always do navigations after the first render
+  useEffect(() => {
+    router.push("product/", undefined, { shallow: true });
+  }, []);
+
   const router = useRouter();
+
+  /**----------------------------------------------------------------------------------------------- */
   /* DATA PRODUCT */
   const [productData, setProductData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/api/products`)
+      .get(`http:localhost:3000/api/products`)
       .then((res) => {
         setProductData(res.data);
       })
       .catch((error) => console.log(error));
   }, []);
 
+  /**----------------------------------------------------------------------------------------------- */
+  /**SORT FUNCTION */
   const [sortBy, setSortBy] = useState("");
-  const [currCate, setCurrCate] = useState("");
 
-  const currentPath = "ALL CATEGORIES";
-
+  /**----------------------------------------------------------------------------------------------- */
+  /**CURRENT PATH */
   const [currPath, setCurrPath] = useState([
     {
       href: "/",
@@ -51,26 +87,50 @@ function Main() {
     },
     {
       href: "/product",
-      namepath: currentPath,
+      namepath: "ALL CATEGORIES",
     },
   ]);
 
-  const handleClickCategory = (category) => {
-    console.log(category)
-    // router.push('product/'+{category});
-  };
+  /**----------------------------------------------------------------------------------------------- */
+  /**CATEGORY */
+
+  function handleClick(category) {
+    if (currPath.length==2){
+      setCurrPath((curPath) => [
+        ...curPath,
+        {
+          href: "product/?category=" + category.nameURL,
+          namepath: category.nameCate,
+        },
+      ]);
+    }
+    else if (currPath.length==3){
+      const copiedPath = Array.from(currPath);
+      copiedPath[2].href="product/?category=" + category.nameURL;
+      copiedPath[2].namepath=category.nameCate;
+      setCurrPath(copiedPath);
+    }
+  }
+
+  useEffect(() => {
+    router.push(`${currPath[currPath.length - 1].href}`, undefined, {
+      shallow: true,
+    });
+  }, [currPath]);
 
   return (
     <>
       <div className="container main-product">
         <div className="row path mt-4 ps-1">
           <div className="col-6 path">
-            <PathProps props={currPath} />
+            <PathProps path={currPath} />
           </div>
         </div>
 
         <div className="row title-sort mt-4 justify-content-between align-items-end">
-          <div className="col-6 title category-title ps-3">{currentPath}</div>
+          <div className="col-6 title category-title ps-3">
+            {currPath[currPath.length - 1].namepath}
+          </div>
           <div className="col-md-2 ">
             <div className="sort border-bottom">
               <span className="mt-1 fw-normal">SORT: </span>
@@ -101,18 +161,19 @@ function Main() {
           <div className="col-3 list-category">
             {CATEGORIES.map((category, index) => (
               <div key={index} className="box-btn-cate">
-                {/* <Link href={`/product/${category}`}> */ }
-                  <div className="btn-cate btn-category"  onClick={(category) => handleClickCategory(category)}>
-                    <span>
-                      {category}
-                    </span>
-                  </div>
-                {/* </Link> */}
+                <div
+                  className="btn-cate btn-category"
+                  onClick={() => handleClick(category)}
+                >
+                  <span>{category.nameCate}</span>
+                </div>
               </div>
             ))}
           </div>
           <div className="col-3 product-panel p-0">
-            <div className="panel text-center">{currCate}</div>
+            <div className="panel text-center">
+              {currPath[currPath.length - 1].namepath}
+            </div>
           </div>
           <div className="col-3 product-panel p-0">
             <div className="panel text-center">fff</div>
