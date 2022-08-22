@@ -14,7 +14,6 @@ export default function Product() {
         <title>Product</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />        
       </Head>
-
       <Header/>
       <Main/>
       <Footer/>

@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import PathProps from "../path";
-
 const CATEGORIES = [
   {
     nameCate: "WEFT HAIR",
@@ -67,7 +66,7 @@ function Main() {
   const [productData, setProductData] = useState([]);
   useEffect(() => {
     axios
-      .get(`http:localhost:3000/api/products`)
+      .get(`http://localhost:5000/user`)
       .then((res) => {
         setProductData(res.data);
       })
@@ -95,7 +94,7 @@ function Main() {
   /**CATEGORY */
 
   function handleClick(category) {
-    if (currPath.length==2){
+    if (currPath.length == 2) {
       setCurrPath((curPath) => [
         ...curPath,
         {
@@ -103,11 +102,10 @@ function Main() {
           namepath: category.nameCate,
         },
       ]);
-    }
-    else if (currPath.length==3){
+    } else if (currPath.length == 3) {
       const copiedPath = Array.from(currPath);
-      copiedPath[2].href="product/?category=" + category.nameURL;
-      copiedPath[2].namepath=category.nameCate;
+      copiedPath[2].href = "product/?category=" + category.nameURL;
+      copiedPath[2].namepath = category.nameCate;
       setCurrPath(copiedPath);
     }
   }
@@ -118,12 +116,29 @@ function Main() {
     });
   }, [currPath]);
 
+  const [test, setTest] = useState(0);
+
+  const handleTurnBackSegment = (index) => {
+    setCurrPath((path) => path.slice(0, index + 1));
+  };
+
   return (
     <>
       <div className="container main-product">
+        
         <div className="row path mt-4 ps-1">
           <div className="col-6 path">
-            <PathProps path={currPath} />
+            <div className="path">
+              {currPath.map((unitpath, index) => (
+                <a
+                  key={index}
+                  className="unitpath-basic ms-1 me-1 title"
+                  onClick={() => handleTurnBackSegment(index)}
+                >
+                  {unitpath.namepath}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -134,19 +149,19 @@ function Main() {
           <div className="col-md-2 ">
             <div className="sort border-bottom">
               <span className="mt-1 fw-normal">SORT: </span>
-              <div class="btn-group ">
+              <div className="btn-group ">
                 <button
                   type="button"
-                  class="btn dropdown-toggle p-0 m-0"
+                  className="btn dropdown-toggle p-0 m-0"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   <p className="text d-inline-block mb-1">{sortBy}</p>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end">
+                <ul className="dropdown-menu dropdown-menu-end">
                   {SORT_ORDERLY.map((sortOrderly, index) => (
                     <li key={index}>
-                      <button class="dropdown-item" type="button">
+                      <button className="dropdown-item" type="button">
                         {sortOrderly}
                       </button>
                     </li>
@@ -176,7 +191,14 @@ function Main() {
             </div>
           </div>
           <div className="col-3 product-panel p-0">
-            <div className="panel text-center">fff</div>
+            <div className="panel text-center">
+              {/* {productData.map(product=>(
+                <div>
+                  <img src={product.avatar} style="height:60px"/>
+                </div>
+              ))} */}
+              aa
+            </div>
           </div>
           <div className="col-3 product-panel p-0">
             <div className="panel text-center">fff</div>
