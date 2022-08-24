@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect, useContext } from "react";
-import PathProps from "../path";
+import CardProps from "../card-props";
+
 const CATEGORIES = [
   {
     nameCate: "WEFT HAIR",
@@ -61,16 +62,24 @@ function Main() {
 
   const router = useRouter();
 
+  /**LOADING STATE */
+  const [isLoading, setIsLoading] = useState(false);
+  /**PRODUCT CATEGORY */
+  const [products, setProducts] = useState([]);
   /**----------------------------------------------------------------------------------------------- */
   /* DATA PRODUCT */
   const [productData, setProductData] = useState([]);
+
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`http://localhost:5000/user`)
       .then((res) => {
+        setProducts(res.data);
         setProductData(res.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoading(false));
   }, []);
 
   /**----------------------------------------------------------------------------------------------- */
@@ -94,6 +103,8 @@ function Main() {
   /**CATEGORY */
 
   function handleClick(category) {
+    setIsLoading(true);
+
     if (currPath.length == 2) {
       setCurrPath((curPath) => [
         ...curPath,
@@ -108,15 +119,68 @@ function Main() {
       copiedPath[2].namepath = category.nameCate;
       setCurrPath(copiedPath);
     }
+    setIsLoading(false);
+
   }
 
   useEffect(() => {
     router.push(`${currPath[currPath.length - 1].href}`, undefined, {
       shallow: true,
     });
-  }, [currPath]);
 
-  const [test, setTest] = useState(0);
+    switch (currPath[currPath.length - 1].namepath) {
+      case "ALL CATEGORIES":
+        setProducts(productData);
+        break;
+      case "WEFT HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Weft hair")
+        );
+        break;
+      case "BULK HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Bulk hair")
+        );
+        break;
+      case "KERATIN HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Keratin Hair")
+        );
+        break;
+      case "CLOSURE":
+        setProducts(
+          productData.filter((product) => product.category === "Closure Hair")
+        );
+        break;
+      case "CLIP IN":
+        setProducts(
+          productData.filter((product) => product.category === "Clip-in ")
+        );
+        break;
+      case "FRONTAL":
+        setProducts(
+          productData.filter((product) => product.category === "Frontal Hair")
+        );
+        break;
+      case "WIGS HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Wigs Hair")
+        );
+        break;
+      case "TAPE HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Tape Hair")
+        );
+        break;
+      case "RAW HAIR":
+        setProducts(
+          productData.filter((product) => product.category === "Raw Hair")
+        );
+        break;
+      default:
+        break;
+    }
+  }, [currPath]);
 
   const handleTurnBackSegment = (index) => {
     setCurrPath((path) => path.slice(0, index + 1));
@@ -125,7 +189,6 @@ function Main() {
   return (
     <>
       <div className="container main-product">
-        
         <div className="row path mt-4 ps-1">
           <div className="col-6 path">
             <div className="path">
@@ -143,10 +206,10 @@ function Main() {
         </div>
 
         <div className="row title-sort mt-4 justify-content-between align-items-end">
-          <div className="col-6 title category-title ps-3">
+          <div className="col-8 title category-title ps-3">
             {currPath[currPath.length - 1].namepath}
           </div>
-          <div className="col-md-2 ">
+          <div className="col-2 ">
             <div className="sort border-bottom">
               <span className="mt-1 fw-normal">SORT: </span>
               <div className="btn-group ">
@@ -173,9 +236,10 @@ function Main() {
         </div>
 
         <div className="row category-showprduct mt-5">
+          {/**CATEGORY  */}
           <div className="col-3 list-category">
             {CATEGORIES.map((category, index) => (
-              <div key={index} className="box-btn-cate">
+              <div key={index} className="box-btn-cate mb-1">
                 <div
                   className="btn-cate btn-category"
                   onClick={() => handleClick(category)}
@@ -185,23 +249,14 @@ function Main() {
               </div>
             ))}
           </div>
-          <div className="col-3 product-panel p-0">
-            <div className="panel text-center">
-              {currPath[currPath.length - 1].namepath}
+
+          {/**PRODUCT */}
+          <div className="col-9 p-0 mb-5">
+            <div className="container-fluid">
+              <div className="row justify-content-between">
+                <CardProps props={products} isLoading={isLoading} />
+              </div>
             </div>
-          </div>
-          <div className="col-3 product-panel p-0">
-            <div className="panel text-center">
-              {/* {productData.map(product=>(
-                <div>
-                  <img src={product.avatar} style="height:60px"/>
-                </div>
-              ))} */}
-              aa
-            </div>
-          </div>
-          <div className="col-3 product-panel p-0">
-            <div className="panel text-center">fff</div>
           </div>
         </div>
       </div>

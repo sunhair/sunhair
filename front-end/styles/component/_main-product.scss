@@ -16,12 +16,17 @@
       }
    }
    .category-showprduct{
+      min-height: 600px;
       .list-category{
          .category{
             height: 42px;
             background-color: red;
             margin-bottom: 4px;
          }
+      }
+      .col-9{
+         max-height: 1280px;
+         overflow: auto;
       }
    }
 }

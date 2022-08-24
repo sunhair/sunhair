@@ -11,8 +11,11 @@
 @import './common/link';
 @import './common/product-panel';
 @import './common/path';
-// scss component
+@import './common/card-product';
+@import './common/loader';
+@import './common/scrollbars';
 
+// scss component
 @import './component/footer.scss';
 @import './component/header';
 @import './component/homesection1';
