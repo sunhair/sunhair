@@ -1,15 +1,15 @@
 const router = require("express").Router();
 const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
-const User = require("../model/user");
+const Product = require("../model/product");
 
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
 
-    // Create new user
-    let user = new User({
+    // Create new product
+    let product = new Product({
       name: req.body.name,
       category: req.body.category,
       information: req.body.information,
@@ -19,9 +19,9 @@ router.post("/", upload.single("image"), async (req, res) => {
       avatar: result.secure_url,
       cloudinary_id: result.public_id,
     });
-    // Save user
-    await user.save();
-    res.json(user);
+    // Save product
+    await product.save();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -29,8 +29,8 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let user = await User.find();
-    res.json(user);
+    let product = await Product.find();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -38,13 +38,13 @@ router.get("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    // Find user by id
-    let user = await User.findById(req.params.id);
+    // Find product by id
+    let product = await Product.findById(req.params.id);
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(user.cloudinary_id);
-    // Delete user from db
-    await user.remove();
-    res.json(user);
+    await cloudinary.uploader.destroy(product.cloudinary_id);
+    // Delete product from db
+    await product.remove();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -52,26 +52,26 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    let user = await User.findById(req.params.id);
+    let product = await Product.findById(req.params.id);
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(user.cloudinary_id);
+    await cloudinary.uploader.destroy(product.cloudinary_id);
     // Upload image to cloudinary
     let result;
     if (req.file) {
       result = await cloudinary.uploader.upload(req.file.path);
     }
     const data = {
-      name: req.body.name || user.name,
-      category: req.body.category || user.category,
-      information: req.body.information || user.information,
-      detail: req.body.detail || user.detail,
-      characteristics: req.body.characteristics || user.characteristics,
-      howtobuy: req.body.howtobuy || user.howtobuy,
-      avatar: result?.secure_url || user.avatar,
-      cloudinary_id: result?.public_id || user.cloudinary_id,
+      name: req.body.name || product.name,
+      category: req.body.category || product.category,
+      information: req.body.information || product.information,
+      detail: req.body.detail || product.detail,
+      characteristics: req.body.characteristics || product.characteristics,
+      howtobuy: req.body.howtobuy || product.howtobuy,
+      avatar: result?.secure_url || product.avatar,
+      cloudinary_id: result?.public_id || product.cloudinary_id,
     };
-    user = await User.findByIdAndUpdate(req.params.id, data, { new: true });
-    res.json(user);
+    product = await Product.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -79,9 +79,9 @@ router.put("/:id", upload.single("image"), async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    // Find user by id
-    let user = await User.findById(req.params.id);
-    res.json(user);
+    // Find product by id
+    let product = await Product.findById(req.params.id);
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
