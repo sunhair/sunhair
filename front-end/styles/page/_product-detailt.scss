@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Yaldevi&display=swap');
+
+
+.product-detail{
+   .main{
+      position: absolute;
+      width: 100%;
+      background: linear-gradient(180deg, #515151 2.41%, rgba(151, 154, 152, 0.98) 30.12%, rgba(151, 154, 152, 0.94) 51.92%, rgba(151, 154, 152, 0.9) 74.6%, rgba(151, 154, 152, 0.98) 98.31%);      
+      transform-style: preserve-3d;
+      .header{
+         // .cart{
+            
+         // }
+         .cart-icon{
+            width: 32px;
+            height: 32px;
+         }
+         .numofadded{
+            position: relative;
+            top:12px;
+            left: -14px;
+            z-index: 1;
+            font-family: 'Work Sans', sans-serif;
+            color: white;
+            font-weight: 500;
+            font-size: 11px;
+            background-color: #1E1E1E;
+            width: 17px;
+            height: 17px;
+            text-align: center;
+            border-radius: 14px;
+         }
+
+      }
+      .detail{
+         margin-top: 42px;
+         &__info{
+            background-image: url('/logo-removebg-1.png');
+            background-position: left top;
+            background-size: contain;
+            background-repeat: no-repeat;
+            padding-top: 154px;
+            .cate{
+               font-family: 'Yaldevi', sans-serif;
+               color:white;
+               font-weight: 500;
+               font-size: 12px;
+               line-height: 18px;
+               text-transform: uppercase;
+               z-index: -1;
+            }
+            .name{
+               font-family: 'Yaldevi', sans-serif;
+               color:white;
+               font-weight: 500;
+               font-size: 50px;
+               line-height: 62px;
+               text-transform: uppercase;
+            }
+            .info{
+               font-family: 'Yaldevi', sans-serif;
+               color:white;
+               font-size: 12px;
+               line-height: 20px;
+               font-weight:300px;
+            }
+            .color{
+               font-family: 'Yaldevi', sans-serif;
+               color:white;
+               font-size: 14px;
+               .hr{
+                  width: 52px;
+                  font-weight: 500px;
+               }
+            }
+            .buynow-addtocard{
+               .common{
+                  width: 164px;
+                  height: 46px;
+                  border: none;
+                  font-family: 'Plus Jakarta Sans';
+                  font-size: 12px;
+                  color: white;
+               }
+               .buynow{
+                  @extend .common;  
+                  background: #515151b0 ;           
+               }
+               .addtocard{
+                  @extend .common;   
+                  color:black; 
+                  background: rgba(217, 217, 217, 0.3);  
+                  border: 1px solid white;       
+               }
+            }
+            .description{
+               font-family: 'Yaldevi', sans-serif;
+               color:white;
+               font-size: 12px;
+               margin-top: 26px;
+
+               &-title-active{
+                  border-bottom: 1px solid white;
+               }
+               h6{
+                  font-family: 'Yaldevi', sans-serif;
+                  color:white;
+                  font-size: 15px;
+                  cursor: pointer;
+               }
+               .content{
+                  line-height: 20px;
+                  max-width: 90%;
+                  font-size: 13px;
+               }
+            }
+         }
+         &__images{
+            max-height: 1300px;            
+         }
+
+      }
+   }
+}
+

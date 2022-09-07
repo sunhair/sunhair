@@ -1,16 +1,18 @@
+import { AnimationOnScroll } from "react-animation-on-scroll";
+
 function AboutUs() {
   return (
     <div className="container about-us">
       <div className="row justify-content-between">
-        <div className="col-5">
+        <AnimationOnScroll animateIn="animate__bounceInDown" className="col-5">
           <div className="image-wrapper shine">
             <img
               src="/sun.png"
               alt="Image here, hover me and watch me shine!"
             />
           </div>
-        </div>
-        <div className="col-6 mt-5">
+        </AnimationOnScroll>
+        <AnimationOnScroll animateIn="animate__bounceInLeft"  className="col-6 mt-5">
           <p className="title float-end">ABOUT US</p>
           <p className="content float-end text-end mt-3">
             Sun Hair was founded with the goal of providing ladies all over the
@@ -31,7 +33,7 @@ function AboutUs() {
               alt="Image here, hover me and watch me shine!"
             />
           </a>
-        </div>
+        </AnimationOnScroll>
       </div>
     </div>
   );

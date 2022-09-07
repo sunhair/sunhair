@@ -1,3 +1,5 @@
+import { AnimationOnScroll } from "react-animation-on-scroll";
+
 function ReasonChoose() {
   return (
     <div className="container reason-choose">
@@ -15,7 +17,7 @@ function ReasonChoose() {
       {/* Content */}
       <div className="row content justify-content-around">
         <div className="col-auto ">
-          <div className="reason1 d-flex flex-column align-items-center justify-content-center">
+          <AnimationOnScroll animateIn="animate__fadeInDownBig" className="reason1 d-flex flex-column align-items-center justify-content-center">
             <p className="content-title reason1-title">
               DIRECT <br /> WHOLESALE <br /> FACTORY
             </p>
@@ -25,9 +27,9 @@ function ReasonChoose() {
             <button type="button" className="button-explore">
               <p className="text">Learn more</p>
             </button>
-          </div>
+          </AnimationOnScroll>
 
-          <div className="reason5 d-flex flex-column justify-content-center ps-5">
+          <AnimationOnScroll animateIn="animate__fadeInLeftBig" className="reason5 d-flex flex-column justify-content-center ps-5">
             <p className="content-title mt-3">
               BEST PRICE <br /> HIGH QUALITY
             </p>
@@ -38,13 +40,13 @@ function ReasonChoose() {
             <button type="button" className="button-explore mt-3">
               <p className="text">Learn more</p>
             </button>
-          </div>
+          </AnimationOnScroll>
         </div>
 
         <div className="col-auto">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-12 reason2 d-flex flex-column justify-content-center align-items-end text-end pe-5">
+              <AnimationOnScroll animateIn="animate__fadeInRightBig" className="col-12 reason2 d-flex flex-column justify-content-center align-items-end text-end pe-5">
                 <p className="content-title reason2-title mt-3">
                   BEST PRICE <br /> HIGH QUALITY
                 </p>
@@ -55,10 +57,10 @@ function ReasonChoose() {
                 <button type="button" className="button-explore mt-3">
                   <p className="text">Learn more</p>
                 </button>
-              </div>
+              </AnimationOnScroll>
             </div>
             <div className="row justify-content-between mt-3">
-              <div className="col-auto reason3 d-flex flex-column justify-content-between">
+              <AnimationOnScroll animateIn="animate__fadeIn" className="col-auto reason3 d-flex flex-column justify-content-between">
                 <div className="ps-4 pt-5">
                   <p className="content-title reason3-title">EASY BUY ONLINE</p>
                   <p className="content-description reason3-description">
@@ -75,8 +77,8 @@ function ReasonChoose() {
                   </p>
                   <a href="#">Learn more</a>
                 </div>
-              </div>
-              <div className="col-auto reason4 d-flex flex-column align-items-center ">
+              </AnimationOnScroll>
+              <AnimationOnScroll animateIn="animate__fadeInUpBig" className="col-auto reason4 d-flex flex-column align-items-center ">
                 <p className="content-title reason4-title ps-5">
                   ASSURANCE EXCHANGE POLICY
                 </p>
@@ -87,7 +89,7 @@ function ReasonChoose() {
                 <button type="button" className="button-explore">
                   <p className="text">Learn more</p>
                 </button>
-              </div>
+              </AnimationOnScroll>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect, useContext } from "react";
 import CardProps from "../card-props";
+import CartContext from "../../context/cart"; 
 
 const CATEGORIES = [
   {
@@ -73,7 +74,7 @@ function Main() {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:5000/user`)
+      .get(`http://localhost:5000/product`)
       .then((res) => {
         setProducts(res.data);
         setProductData(res.data);
@@ -82,10 +83,15 @@ function Main() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  /**TOOL ADD TO CARD */
+  const productAdded=useContext(CartContext);
+
   /**----------------------------------------------------------------------------------------------- */
   /**SORT FUNCTION */
   const [sortBy, setSortBy] = useState("");
+  // const handleShowOrderly = () =>{
 
+  // }
   /**----------------------------------------------------------------------------------------------- */
   /**CURRENT PATH */
   const [currPath, setCurrPath] = useState([
@@ -120,9 +126,10 @@ function Main() {
       setCurrPath(copiedPath);
     }
     setIsLoading(false);
+  } 
 
-  }
-
+  /**---------------------------------------------------------------------------------------------- */
+  /**HANDLER CHANGE CURRENT PATH */
   useEffect(() => {
     router.push(`${currPath[currPath.length - 1].href}`, undefined, {
       shallow: true,
@@ -186,11 +193,14 @@ function Main() {
     setCurrPath((path) => path.slice(0, index + 1));
   };
 
+  /**INDEX PRODUCT */
+
+  
   return (
     <>
       <div className="container main-product">
         <div className="row path mt-4 ps-1">
-          <div className="col-6 path">
+          <div className="col-12 path">
             <div className="path">
               {currPath.map((unitpath, index) => (
                 <a
@@ -201,6 +211,9 @@ function Main() {
                   {unitpath.namepath}
                 </a>
               ))}
+
+              
+
             </div>
           </div>
         </div>
@@ -254,7 +267,11 @@ function Main() {
           <div className="col-9 p-0 mb-5">
             <div className="container-fluid">
               <div className="row justify-content-between">
-                <CardProps props={products} isLoading={isLoading} />
+                <CardProps
+                  props={products}
+                  isLoading={isLoading}
+                  handleChooseItems={setCurrPath}
+                />
               </div>
             </div>
           </div>

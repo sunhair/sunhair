@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const cloudinary = require("../utils/cloudinary");
 const upload = require("../utils/multer");
-const User = require("../model/user");
+const Product = require("../model/user");
 
 router.post("/", upload.single("image"), async (req, res) => {
   try {
@@ -9,7 +9,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path);
 
     // Create new user
-    let user = new User({
+    let user = new Product({
       name: req.body.name,
       category: req.body.category,
       information: req.body.information,
@@ -29,7 +29,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let user = await User.find();
+    let user = await Product.find();
     res.json(user);
   } catch (err) {
     console.log(err);
@@ -39,7 +39,7 @@ router.get("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     // Find user by id
-    let user = await User.findById(req.params.id);
+    let user = await Product.findById(req.params.id);
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(user.cloudinary_id);
     // Delete user from db
@@ -52,7 +52,7 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    let user = await User.findById(req.params.id);
+    let user = await Product.findById(req.params.id);
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(user.cloudinary_id);
     // Upload image to cloudinary
@@ -70,7 +70,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
       avatar: result?.secure_url || user.avatar,
       cloudinary_id: result?.public_id || user.cloudinary_id,
     };
-    user = await User.findByIdAndUpdate(req.params.id, data, { new: true });
+    user = await Product.findByIdAndUpdate(req.params.id, data, { new: true });
     res.json(user);
   } catch (err) {
     console.log(err);
@@ -79,10 +79,19 @@ router.put("/:id", upload.single("image"), async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    // Find user by id
-    let user = await User.findById(req.params.id);
-    res.json(user);
+    // Find product by id
+    let product = await Product.find({_id:req.params.id});
+    res.json(product);
   } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get("/category/:category",async(req,res)=>{
+  try{
+    const relativeProduct = await Product.find({category:req.params.category});
+    res.json(relativeProduct);
+  } catch(err){
     console.log(err);
   }
 });
