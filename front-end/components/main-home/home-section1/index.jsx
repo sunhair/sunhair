@@ -1,4 +1,5 @@
-import Header from "../../Header";
+// import Header from "../../header";
+import Header from "../../header/index";
 
 function HomeSection1() {
   return (

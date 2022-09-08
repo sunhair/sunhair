@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 
 function OurProducts() {
   return (
@@ -16,7 +16,7 @@ function OurProducts() {
             </a>
           </Link>
 
-          <p className="description">
+          <p className="description"> 
             &quot;We are happy to provide the greatest hair quality in a variety of
             styles and colors &quot;
           </p>

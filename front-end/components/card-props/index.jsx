@@ -1,5 +1,5 @@
 import Loading from "../loader";
-import Link from "next/Link";
+import Link from "next/link";
 
 function CardProps({ props, isLoading, handleChooseItems }) {
   if (isLoading) return <Loading />;
