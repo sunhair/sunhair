@@ -17,8 +17,8 @@ function OurProducts() {
           </Link>
 
           <p className="description">
-            "We are happy to provide the greatest hair quality in a variety of
-            styles and colors"
+            &quot;We are happy to provide the greatest hair quality in a variety of
+            styles and colors &quot;
           </p>
         </div>
       </div>

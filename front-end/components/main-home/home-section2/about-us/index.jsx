@@ -18,7 +18,7 @@ function AboutUs() {
             Sun Hair was founded with the goal of providing ladies all over the
             world with the most beautiful, fashionable hair without causing
             damage to their natural hair. Sun Hair is proud to be one of
-            Vietnam's leading hair suppliers, offering the most excellent value
+            Vietnam&apos;s leading hair suppliers, offering the most excellent value
             and premium services.
           </p>
           <p className="content float-end text-end">
