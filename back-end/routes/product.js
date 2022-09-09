@@ -9,7 +9,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     const result = await cloudinary.uploader.upload(req.file.path);
 
     // Create new user
-    let user = new Product({
+    let product = new Product({
       name: req.body.name,
       category: req.body.category,
       information: req.body.information,
@@ -20,8 +20,8 @@ router.post("/", upload.single("image"), async (req, res) => {
       cloudinary_id: result.public_id,
     });
     // Save user
-    await user.save();
-    res.json(user);
+    await product.save();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -29,8 +29,8 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    let user = await Product.find();
-    res.json(user);
+    let product = await Product.find();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -39,12 +39,12 @@ router.get("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     // Find user by id
-    let user = await Product.findById(req.params.id);
+    let product = await Product.findById(req.params.id);
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(user.cloudinary_id);
+    await cloudinary.uploader.destroy(product.cloudinary_id);
     // Delete user from db
-    await user.remove();
-    res.json(user);
+    await product.remove();
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
@@ -52,9 +52,9 @@ router.delete("/:id", async (req, res) => {
 
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
-    let user = await Product.findById(req.params.id);
+    let product = await Product.findById(req.params.id);
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(user.cloudinary_id);
+    await cloudinary.uploader.destroy(product.cloudinary_id);
     // Upload image to cloudinary
     let result;
     if (req.file) {
@@ -70,8 +70,8 @@ router.put("/:id", upload.single("image"), async (req, res) => {
       avatar: result?.secure_url || user.avatar,
       cloudinary_id: result?.public_id || user.cloudinary_id,
     };
-    user = await Product.findByIdAndUpdate(req.params.id, data, { new: true });
-    res.json(user);
+    product = await Product.findByIdAndUpdate(req.params.id, data, { new: true });
+    res.json(product);
   } catch (err) {
     console.log(err);
   }
