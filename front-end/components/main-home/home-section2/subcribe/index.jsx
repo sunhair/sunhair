@@ -1,4 +1,25 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 function Subcribe() {
+  const [email, setEmail] = useState("");
+  const handleOnChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const handleSubmit = () =>{
+    const data={
+      email : email,
+      phone: "",
+      time_register: new Date(),
+      cart: new Array({})
+    }
+    axios.post(`http://localhost:5000/user`, {data})
+      .then(res=>{
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error))
+  }
+  
   return (
     <div className="container-fluid subcribe">
       <div className="container">
@@ -16,8 +37,9 @@ function Subcribe() {
                   className="form-regular"
                   type="input"
                   placeholder="Your email here ..."
+                  onChange={(e)=>handleOnChange(e)}
                 />
-                <button type="button" className="submit-regular">
+                <button type="button" className="submit-regular" onClick={()=>handleSubmit()}>
                   <p className="text">Regular</p>
                 </button>
               </div>
