@@ -48,7 +48,7 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-});
+}); 
 
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
