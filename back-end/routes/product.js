@@ -8,7 +8,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
 
-    // Create new user
+    // Create new product
     let product = new Product({
       name: req.body.name,
       category: req.body.category,
@@ -19,7 +19,7 @@ router.post("/", upload.single("image"), async (req, res) => {
       avatar: result.secure_url,
       cloudinary_id: result.public_id,
     });
-    // Save user
+    // Save product
     await product.save();
     res.json(product);
   } catch (err) {
@@ -38,11 +38,11 @@ router.get("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    // Find user by id
+    // Find product by id
     let product = await Product.findById(req.params.id);
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(product.cloudinary_id);
-    // Delete user from db
+    // Delete product from db
     await product.remove();
     res.json(product);
   } catch (err) {
@@ -61,14 +61,14 @@ router.put("/:id", upload.single("image"), async (req, res) => {
       result = await cloudinary.uploader.upload(req.file.path);
     }
     const data = {
-      name: req.body.name || user.name,
-      category: req.body.category || user.category,
-      information: req.body.information || user.information,
-      detail: req.body.detail || user.detail,
-      characteristics: req.body.characteristics || user.characteristics,
-      howtobuy: req.body.howtobuy || user.howtobuy,
-      avatar: result?.secure_url || user.avatar,
-      cloudinary_id: result?.public_id || user.cloudinary_id,
+      name: req.body.name || product.name,
+      category: req.body.category || product.category,
+      information: req.body.information || product.information,
+      detail: req.body.detail || product.detail,
+      characteristics: req.body.characteristics || product.characteristics,
+      howtobuy: req.body.howtobuy || product.howtobuy,
+      avatar: result?.secure_url || product.avatar,
+      cloudinary_id: result?.public_id || product.cloudinary_id,
     };
     product = await Product.findByIdAndUpdate(req.params.id, data, { new: true });
     res.json(product);
@@ -80,7 +80,7 @@ router.put("/:id", upload.single("image"), async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     // Find product by id
-    let product = await Product.find({_id:req.params.id});
+    let product = await Product.findById(req.params.id);
     res.json(product);
   } catch (err) {
     console.log(err);
