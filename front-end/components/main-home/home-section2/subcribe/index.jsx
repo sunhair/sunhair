@@ -2,20 +2,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Subcribe() {
-  const [email, setEmail] = useState("");
+  const [email1, setEmail] = useState("");
   const handleOnChange = (e) => {
     setEmail(e.target.value)
   }
   const handleSubmit = () =>{
     const data={
-      email : email,
+      email : email1,
       phone: "",
       time_register: new Date(),
       cart: new Array({})
     }
-    axios.post(`http://localhost:5000/user`, {data})
+    axios.post(`https://sanh0804-sanh0804.vercel.app/user`, data)
       .then(res=>{
-        console.log(res.data);
+        console.log(res);
+        console.log(res.data)
       })
       .catch((error) => console.log(error))
   }

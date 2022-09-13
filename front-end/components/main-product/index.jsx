@@ -74,7 +74,7 @@ function Main() {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:5000/product`)
+      .get(`https://sanh0804-sanh0804.vercel.app/product`)
       .then((res) => {
         setProducts(res.data);
         setProductData(res.data);

@@ -17,7 +17,7 @@ const Categories = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:5000/product/${product_id}`)
+      .get(`https://sanh0804-sanh0804.vercel.app/product/${product_id}`)
       .then((res) => {
         setProductData(res.data[0]);
       })
