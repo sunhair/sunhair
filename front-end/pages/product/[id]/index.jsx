@@ -15,14 +15,14 @@ const Categories = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
     axios
       .get(`https://sanh0804-sanh0804.vercel.app/product/${product_id}`)
       .then((res) => {
         setProductData(res.data[0]);
       })
       .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
+      // .finally(() => setIsLoading(false));
   }, []);
 
 
