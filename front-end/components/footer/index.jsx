@@ -49,7 +49,7 @@ function Footer() {
                   Copyright © 2022 SunhairCompany.com, All Rights Reserved{" "}
                 </div>
               </div>
-              <div className="col-1 mt-4">
+              <div className="col-2 mt-4">
                 <p className="about mt-5">ABOUT</p>
                 <div className="about-link">
                   <a className="about-link-item a" href="#">

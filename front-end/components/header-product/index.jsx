@@ -1,4 +1,5 @@
 import Notification from "./notification";
+import Link from "next/link";
 
 function Header() {
   return (
@@ -6,7 +7,11 @@ function Header() {
       <Notification />
       <div className="container mt-3 header-product">
         <div className="row align-items-center">
-          <div className="col-8 offset-2 text-center">
+          <div className="col-2 ps-4 pt-3">
+            <Link href="/">ssssss</Link>
+          </div>
+
+          <div className="col-8 text-center">
             <a className="navbar-brand" href="#">
               <img
                 src="/brand-sunhair-removebg-preview.png"
@@ -18,10 +23,18 @@ function Header() {
           </div>
           <div className="col-2 text-end">
             <a className="nav-link d-inline-block" href="#">
-              <img src="/search-interface-symbol-icon.png" alt="" className="search-icon"/>
+              <img
+                src="/search-interface-symbol-icon.png"
+                alt=""
+                className="search-icon"
+              />
             </a>
             <a className="nav-link d-inline-block ms-5" href="#">
-               <img src="/shopping-cart-icon.png" alt="" className="search-icon"/>
+              <img
+                src="/shopping-cart-icon.png"
+                alt=""
+                className="search-icon"
+              />
             </a>
           </div>
         </div>

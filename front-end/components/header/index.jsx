@@ -12,14 +12,12 @@ function Header() {
         </button>
         <div className="collapse navbar-collapse justify-content-between align-items-end" id="navbarNavAltMarkup" >
           <div className='section1'></div>
-
           <div className="navbar-nav section2">
             <a className="nav-link active" aria-current="page" href="#">Home</a>
-            <a className="nav-link" href="#">About us</a>
-            <a className="nav-link" href="#">Blog</a>
-            <a className="nav-link" href="#">Shop</a>
+            <Link href="#"><a className='nav-link'>About us</a></Link>
+            <Link href="/blog"><a className='nav-link'>Blog</a></Link>
+            <Link href="/product"><a className="nav-link">Shop</a></Link>
           </div>
-
           <div className="navbar-nav section3">
             <img src='/icon-contact.png' alt="" width="18" heigh="18"/>
             <a className="nav-link" href="tel:(+84) 969-682-226">Contact</a>
