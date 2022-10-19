@@ -48,7 +48,7 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-}); 
+});
 
 router.put("/:id", upload.single("image"), async (req, res) => {
   try {
@@ -88,11 +88,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.get("/category/:category",async(req,res)=>{
-  try{
-    const relativeProduct = await Product.find({category:req.params.category});
+router.get("/category/:category", async (req, res) => {
+  try {
+    const relativeProduct = await Product.find({ category: req.params.category });
     res.json(relativeProduct);
-  } catch(err){
+  } catch (err) {
     console.log(err);
   }
 });

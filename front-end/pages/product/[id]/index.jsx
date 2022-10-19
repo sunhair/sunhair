@@ -23,24 +23,24 @@ const Categories = () => {
         setProductData(res.data[0]);
         console.log(setIsLoading);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
       .finally(() => setIsLoading(false));
-  }, []);
+}, []);
 
 
-  /**ADDING PRODUCT TO CARD */
-  const productAdded = useContext(CartContext);
+/**ADDING PRODUCT TO CARD */
+const productAdded = useContext(CartContext);
 
-  const handleAddToCart = ()=>{
-    productAdded.setProductAdded(prev=>[...prev,{productData}]);
-  }
+const handleAddToCart = () => {
+  productAdded.setProductAdded(prev => [...prev, { productData }]);
+}
 
-  /**RESET CART */
-  const handleResetCart=()=>{
-    productAdded.setProductAdded([]);
-  }
+/**RESET CART */
+const handleResetCart = () => {
+  productAdded.setProductAdded([]);
+}
 
-  return <></>
+return <></>
   // if (isLoading) return <></>  
   // else return (
   //   <ParallaxProvider>
@@ -85,7 +85,7 @@ const Categories = () => {
   //               </div>
   //             </div>
   //           </div>
-            
+
   //           <div className="row detail">
 
   //             <div className="col-11 col-lg-5 offset-1 detail__info pe-1">
@@ -142,7 +142,7 @@ const Categories = () => {
   //           </div>
 
   //           <Sponsor mainProduct={productData.category}/>
-                
+
   //         </div>
   //       </div>
   //     </div>
