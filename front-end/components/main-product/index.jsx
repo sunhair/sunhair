@@ -62,7 +62,7 @@ function Main() {
   }, []);
 
   const router = useRouter();
-
+  
   /**LOADING STATE */
   const [isLoading, setIsLoading] = useState(false);
   /**PRODUCT CATEGORY */

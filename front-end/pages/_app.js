@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <CartProvider>
       <Head>
-        <link rel="icon" type="image/x-icon" href="/logo.png" />
+        <link rel="icon" type="image/x-icon" href="/logo-removebg.png" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Component {...pageProps} />

@@ -7,7 +7,6 @@ function CardProps({ props, isLoading, handleChooseItems }) {
     return (
       <>
         {props.map((prop, index) => (
-          // const pathname = "product/" + prop.name;
           <Link
             href={{
               pathname: "/product/"+prop._id,
@@ -16,7 +15,7 @@ function CardProps({ props, isLoading, handleChooseItems }) {
           >
             <div
               className="container-card mb-5"
-              style={{ backgroundImage: `url(${prop.avatar[0]})` }}
+              style={{ backgroundImage: `url(/product/images/${prop._id}/0.png)` }}
             >
               <div className="overlay">
                 <div className="items"></div>

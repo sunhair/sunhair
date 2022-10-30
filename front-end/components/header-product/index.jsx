@@ -5,10 +5,10 @@ function Header() {
   return (
     <>
       <Notification />
-      <div className="container mt-3 header-product">
+      <div className="container mt-4 header-product">
         <div className="row align-items-center">
           <div className="col-2 ps-4 pt-3">
-            <Link href="/">ssssss</Link>
+            <Link href="/">GO HOME</Link>
           </div>
 
           <div className="col-8 text-center">
