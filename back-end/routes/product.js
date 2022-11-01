@@ -1,6 +1,4 @@
 const router = require("express").Router();
-const cloudinary = require("../utils/cloudinary");
-const upload = require("../utils/multer");
 const Product = require("../model/product");
 
 // router.post("/", upload.single("image"), async (req, res) => {
@@ -83,7 +81,6 @@ router.get("/:id", async (req, res) => {
     let product = await Product.findById(req.params.id);
     res.json(product);
   } catch (err) {
-    res.json(err);
     console.log(err);
   }
 });

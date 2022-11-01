@@ -20,12 +20,6 @@ const productSchema = new mongoose.Schema({
   howtobuy: {
     type: String
   },
-  avatar: {
-    type: [String],
-  },
-  cloudinary_id: {
-    type: [String],
-  },
 });
 
 module.exports = mongoose.model("products", productSchema);
